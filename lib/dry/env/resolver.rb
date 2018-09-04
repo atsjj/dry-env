@@ -232,6 +232,22 @@ module Dry
         ]
       end
 
+      # Creates a new instance of the resolver with a different target
+      # and yields it to a block. The return value of the block is then
+      # passed back as a string.
+      #
+      # @param [String] name The target environment
+      #
+      # @return [String]
+      #
+      # @api public
+      def with(target = DEFAULT_TARGET)
+        klass = Class.new(self.class)
+        klass.configure { |c| c.target = target }
+
+        yield(klass.new)
+      end
+
       # Requires that a given environment variable can be fetched and
       # returned with the provided key or raises an error.
       #

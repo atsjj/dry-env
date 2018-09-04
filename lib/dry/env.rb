@@ -8,7 +8,7 @@ module Dry
 
       attr_accessor :instance
 
-      def_delegators :instance, :required, :optional
+      def_delegators :instance, :required, :optional, :with
     end
   end
 end
