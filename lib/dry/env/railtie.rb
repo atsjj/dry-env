@@ -4,11 +4,9 @@ require 'dry/env/resolver'
 module Dry
   module Env
     class Railtie < ::Rails::Railtie
-      config.eager_load_namespaces << Dry::Env
-
       config.dry_env = Resolver.config
 
-      initializer "dry.env.initialize" do
+      initializer "dry.env.initialize", before: 'active_record.initialize_database' do
         load_initializer
 
         Dry::Env::Resolver.config.target = ::Rails.env

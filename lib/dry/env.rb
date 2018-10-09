@@ -1,14 +1,12 @@
+require 'active_support/core_ext/module/delegation'
 require 'dry/env/resolver'
-require 'forwardable'
 
 module Dry
   module Env
     class << self
-      extend Forwardable
-
       attr_accessor :instance
 
-      def_delegators :instance, :required, :optional, :with
+      delegate :required, :optional, :with, to: :@instance, allow_nil: true
     end
   end
 end
