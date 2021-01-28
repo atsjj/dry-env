@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry/env/constants'
 require 'dry/env/resolver'
 

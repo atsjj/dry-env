@@ -16,11 +16,10 @@ Gem::Specification.new do |spec|
   # spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'dry-configurable', '~> 0.8.0'
-  spec.add_dependency 'dry-core', '~> 0.4.7'
-
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
 
+  spec.add_runtime_dependency 'dry-configurable', '>= 0.8.0'
+  spec.add_runtime_dependency 'dry-core', '>= 0.4.0'
   spec.add_runtime_dependency 'railties'
 end
